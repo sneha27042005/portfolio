@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out forwards;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c084fc;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a855f7;
+}
+
+/* Beautiful Custom Cursor */
+* {
+  cursor: none;
+}
+
+body {
+  cursor: none;
+}
+
+/* Main cursor dot */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(45deg, #a855f7, #ec4899);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease;
+  mix-blend-mode: difference;
+}
+
+/* Cursor outline */
+.cursor-outline {
+  width: 32px;
+  height: 32px;
+  border: 2px solid rgba(168, 85, 247, 0.3);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  transition: all 0.15s ease;
+  transform: translate(-50%, -50%);
+}
+
+/* Cursor hover effects */
+.cursor-hover .cursor-dot {
+  transform: scale(2);
+  background: linear-gradient(45deg, #ec4899, #8b5cf6);
+}
+
+.cursor-hover .cursor-outline {
+  width: 48px;
+  height: 48px;
+  border-color: rgba(236, 72, 153, 0.6);
+}
+
+/* Cursor click effect */
+.cursor-click .cursor-dot {
+  transform: scale(0.8);
+}
+
+.cursor-click .cursor-outline {
+  width: 24px;
+  height: 24px;
+}
+
+/* Special cursor for interactive elements */
+a, button, [role="button"], .cursor-pointer {
+  cursor: none !important;
+}
+
+a:hover, button:hover, [role="button"]:hover, .cursor-pointer:hover {
+  cursor: none !important;
+}
+
+/* Text cursor for inputs */
+input, textarea {
+  cursor: text !important;
+}
+
+/* Cursor trail effect */
+.cursor-trail {
+  width: 4px;
+  height: 4px;
+  background: rgba(168, 85, 247, 0.4);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9997;
+  transition: all 0.3s ease;
+}
+
+/* Magnetic cursor effect for special elements */
+.magnetic-cursor {
+  transition: transform 0.2s ease;
+}
+
+/* Cursor text effect */
+.cursor-text {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  background: rgba(168, 85, 247, 0.9);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  transform: translate(-50%, -100%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+.cursor-text.show {
+  opacity: 1;
+}
+
+/* Hide cursor on mobile devices */
+@media (max-width: 768px) {
+  .cursor-dot,
+  .cursor-outline,
+  .cursor-trail,
+  .cursor-text {
+    display: none;
+  }
+  
+  * {
+    cursor: auto !important;
+  }
+}
+
+/* Cursor glow effect */
+@keyframes cursor-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.6), 0 0 30px rgba(236, 72, 153, 0.3);
+  }
+}
+
+.cursor-glow .cursor-dot {
+  animation: cursor-glow 2s ease-in-out infinite;
+}
