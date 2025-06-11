@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Mail, Github, Linkedin, Twitter, ExternalLink, User, Code, Palette, Phone, MapPin, Calendar, Send } from 'lucide-react';
+import snehaImage from './assets/sneha.jpg';
+
+
 
 function App() {
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
@@ -199,11 +202,13 @@ Using React for dynamic user interfaces.
   <div className="relative">
     {/* Replace with your image */}
     <div className="w-80 h-80 rounded-full overflow-hidden flex items-center justify-center shadow-2xl cursor-pointer" data-cursor-text="That's me!">
-      <img 
-        src="/assets/sneha.jpg" 
-        alt="Sneha's Profile" 
-        className="w-full h-full object-cover"
-      />
+
+<img 
+  src={snehaImage} 
+  alt="Sneha's Profile" 
+  className="w-full h-full object-cover"
+/>
+
     </div>
     <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg cursor-pointer" data-cursor-text="Design">
       <Palette className="text-purple-500" size={32} />
